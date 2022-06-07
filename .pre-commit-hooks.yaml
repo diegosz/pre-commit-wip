@@ -1,0 +1,11 @@
+# ==============================================================================
+# config_secrets
+#   * Folder-Based
+#   * Targets config/secrets
+# ==============================================================================
+- id: config_secrets
+  name: "config_secrets"
+  entry: config_secrets.sh
+  language: "script"
+  description: "Check if config/secrets has decrypted secrets"
+  require_serial: true

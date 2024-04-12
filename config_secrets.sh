@@ -10,9 +10,17 @@ normal=$(tput sgr0)
 exec </dev/tty
 
 for d in $DIRS; do
-    # find files containing secrets that should be encrypted
+    # find yaml files containing secrets that should be encrypted
     for f in $(find "${d}" -type f -regex ".*secrets.\(yaml\|yml\)"); do
         if ! $(grep -q "^sops:" $f); then
+            printf '\xF0\x9F\x92\xA5 '
+            echo "File $f has non encrypted secrets!"
+            HAS_NON_ENCRYPTED=1
+        fi
+    done
+    # find env files containing secrets that should be encrypted
+    for f in $(find "${d}" -type f -regex ".*secrets.\(env\)"); do
+        if ! $(grep -q "^sops_" $f); then
             printf '\xF0\x9F\x92\xA5 '
             echo "File $f has non encrypted secrets!"
             HAS_NON_ENCRYPTED=1

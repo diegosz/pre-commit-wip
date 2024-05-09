@@ -1,5 +1,5 @@
 repos:
   - repo: https://github.com/diegosz/pre-commit-wip
-    rev: v0.0.3-alpha.1 # change this to the latest version
+    rev: v0.0.3 # change this to the latest version
     hooks:
       - id: config_secrets

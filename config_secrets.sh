@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # directories containing potential secrets
 DIRS="config/secrets"
